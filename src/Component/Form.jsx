@@ -18,7 +18,7 @@ const Form = (props) => {
         // console.log(newUser);
         props.addToState(newUser)
         setName("");
-        setAge(0);
+        // setAge(0);
     }
 
   return (
