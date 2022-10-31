@@ -1,23 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './Component/Form';
+import {useState} from 'react';
+import PeopleDisplay from './Component/PeopleDisplay';
 
 function App() {
+
+  const [people, setPeople] = useState([
+    {
+        name: "Toad",
+        age: 30
+    },
+    {
+        name: "Mario",
+        age: 40
+    },
+    {
+        name: "Luigi",
+        age: 40
+    },
+    {
+        name: "Princess Peach",
+        age: 30
+    }
+])
+
+const addToState = (newUserObj) => {
+  console.log(newUserObj)
+  setPeople([...people, newUserObj])
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>review Forms and State</h1>
+      {JSON.stringify(people)}
+        <hr />
+      <Form addToState = {addToState}/>
+      <PeopleDisplay people={people}/>
     </div>
   );
 }
